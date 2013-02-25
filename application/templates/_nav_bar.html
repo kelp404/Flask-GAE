@@ -1,0 +1,20 @@
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <div class="span12">
+                <a class="brand" href="/">{{ title_prefix }}</a>
+                <ul id="nav_bar" class="nav">
+                    <li class="active"><a href="/">Home</a></li>
+                    <li><a href="/posts">Board</a></li>
+                </ul>
+                <ul class="nav pull-right">
+                    {% if user %}
+                        <li class="divider-vertical"><a href="{{ logout_url }}#">Sign out</a></li>
+                    {% else %}
+                        <li class="divider-vertical"><a href="{{ login_url }}#">Sign in</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

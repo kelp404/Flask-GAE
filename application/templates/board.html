@@ -1,0 +1,47 @@
+{% extends '_container.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="span12">
+            <!-- submit a post -->
+            <legend>Create post</legend>
+            <form id="form_create_post" method="post" action="/posts#">
+                <div class="control-group">
+                    <input class="input-large {{ ''|default('focus', keyword == '') }}" validation=".+" msg="Title is required." type="text" name="title" placeholder="Title" />
+                </div>
+
+                <div class="control-group">
+                    <textarea name="content" class="input-xxlarge enter-submit" rows="4" validation=".+" msg="Content is required."></textarea>
+                </div>
+
+                <div class="control-group"><input class="btn" type="submit" value="Submit"/> ⌃ + Enter</div>
+            </form>
+            <div class="clearfix"></div>
+
+            <hr/>
+
+            <!-- search -->
+            <form class="input-append pull-right" method="get" action="/posts">
+                <input class="span3 {{ ''|default('focus', keyword != '') }}" type="text" id="document_keyword" name="keyword" placeholder="search" value="{{ keyword }}"/>
+                <input type="submit" class="btn" style="height: 30px;" value="Search" />
+            </form>
+            <div class="clearfix"></div>
+
+            <!-- posts -->
+            {% for item in page['items'] %}
+                <div>
+                    <legend>{{ item.title }}</legend>
+                    <pre>{{ item.content }}</pre>
+                    <span class="pull-right">
+                        {% if item.deletable %}<a href="/posts/{{ item.doc_id }}#" class="delete_post">delete</a> | {% endif %}
+                        {{ item.author }} at {{ render_datetime(item.create_time, 'MMM d, hh:mm TT') }}
+                    </span>
+                </div>
+            {% endfor %}
+
+            <div class="clearfix"></div>
+
+            {{ render_page(page, 'pull-right', 'q=' + keyword) }}
+        </div>
+    </div>
+{% endblock %}

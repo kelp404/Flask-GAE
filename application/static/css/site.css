@@ -1,0 +1,122 @@
+/*
+ z-index
+    .knotification: 1600
+    bootstrap modal: 1040
+ */
+
+
+/* KNotification */
+.knotification {
+    position: fixed;
+    margin: 5px;
+    width: 250px;
+    height: 65px;
+    overflow: hidden;
+    z-index: 1600;
+
+    padding: 0;
+    opacity: 0.8;
+    background-color:#f5f5f5;
+    border:1px solid #e3e3e3;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.05);
+    -moz-box-shadow:inset 0 1px 1px rgba(0,0,0,0.05);
+    box-shadow:inset 0 1px 1px rgba(0,0,0,0.05);
+    -webkit-box-shadow: 0 0 10px #444;
+    -moz-box-shadow: 0 0 10px #444;
+    box-shadow: 0 0 10px #444;
+}
+.knotification .ntitle
+{
+    border-bottom:1px solid #e3e3e3;
+    background:-moz-linear-gradient(0% 0% 270deg, #f0f0f0, #fff 100%);
+    background:-webkit-gradient(linear, 50% 0%, 50% 100%, from(#f0f0f0), to(#fff));
+    font-weight: bolder;
+    line-height: 20px;
+    font-size: 14px;
+    padding: 0 10px;
+}
+.knotification .nmessage
+{
+    padding: 0 10px;
+    font-size: 13px;
+}
+
+
+/* font-family */
+@font-face {
+    font-family: MyCustomFont;
+    src: local("ヒラギノ角ゴ ProN"), local("Hiragino Kaku Gothic ProN"),
+    local(Ubuntu),
+    local("Microsoft JhengHei");
+}
+/* Latin */
+@font-face {
+    font-family: MyCustomFont;
+    unicode-range: U+00-024F, U+203F;
+    src: local(Helvetica),
+    local(Ubuntu),
+    local(Arial);
+}
+
+@font-face {
+    font-family: 'Segoe Print';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Segoe Print'), local('SegoePrint'), url('/css/segoepr.ttf');
+}
+
+body
+{
+    font-size: 13px;
+    font-family: MyCustomFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #232323;
+    background: url(/css/dust.png);
+}
+
+/* content */
+#content_background
+{
+    background-color: #fff;
+    padding: 70px 0 20px 0;
+    width: 100%;
+}
+
+/* footer */
+#footer
+{
+    background-color: #f2f2f2;
+    background: url(/css/dust.png);
+    box-shadow: 0 -10px 12px #f2f2f2;
+    padding: 40px 0;
+    width: 100%;
+    min-width: 1100px;
+
+    color: #666;
+    font-size:13px;
+    text-align:center;
+    font-weight:bolder;
+}
+footer a{ color:#eee;text-decoration: none;}
+footer a:link{ color:#eee;text-decoration: none;}
+footer a:visited{ color:#eee;text-decoration: none;}
+footer a:hover{ color:#eee; }
+
+
+/* shared */
+.shadow
+{
+    -moz-box-shadow: 0 0 12px #555;
+    -webkit-box-shadow: 0 0 12px #555;
+    box-shadow: 0 0 12px #555;
+}
+.radius
+{
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.clear { clear:both; }

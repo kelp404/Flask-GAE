@@ -1,0 +1,68 @@
+application: flask-gae-kelp
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+inbound_services:
+- warmup
+
+skip_files:
+- ^(.*/)?#.*#
+- ^(.*/)?.*~
+- ^(.*/)?.*\.py[co]
+- ^(.*/)?.*/RCS/.*
+- ^(.*/)?\..*
+- ^test.py
+- ^(.*/)?tests/.*
+- ^(.*/)?test/.*
+- ^(.*/)?unittest2$
+- ^mock.py
+- ^Makefile
+- ^COPYING.LESSER
+- ^README.md
+- \.gitignore
+- ^\.git/.*
+- ^\.idea/.*
+- \.*\.lint$
+- ^_images/.*
+- ^application/static/minifier/.*
+
+handlers:
+# icon / robots.txt
+- url: /favicon\.ico
+  mime_type: image/vnd.microsoft.icon
+  static_files: application/static/icon/favicon.ico
+  upload: application/static/icon/favicon.ico
+- url: /robots\.txt
+  static_files: application/static/robots.txt
+  upload: application/static/robots\.txt
+
+# javascript / css / image
+- url: /javascripts/
+  static_dir: application/static/javascripts
+- url: /css/
+  static_dir: application/static/css
+- url: /imgs/
+  static_dir: application/static/imgs
+
+# mini profiler
+- url: /gae_mini_profiler/static
+  static_dir: gae_mini_profiler/static
+- url: /gae_mini_profiler/.*
+  script: gae_mini_profiler.main.application
+
+# corn jobs
+- url: /cron_jobs/.*
+  script: cron_jobs.app
+  login: admin
+
+- url: /.*
+  script: application.app
+
+
+libraries:
+- name: webapp2
+  version: "2.5.1"
+- name: markupsafe
+  version: "latest"

@@ -1,0 +1,5 @@
+cron:
+- description: clear documents
+  target: backend-dynamic
+  url: /cron_jobs/post
+  schedule: every 12 hours

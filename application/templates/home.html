@@ -1,0 +1,78 @@
+{% extends '_container.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="offset9 span3">
+            {% set menu = 'home' %}
+            {% include 'menu_home.html' %}
+        </div>
+
+        <div class="span9">
+            This project is my <a href="https://developers.google.com/appengine/" target="_blank">GAE</a> project template.<br/>
+            <br/>
+
+            Uses <a href="http://www.whatwg.org/specs/web-apps/current-work/#history-0" target="_blank">History</a> to link pages,
+            so that all hyperlinks are ajax.<br/>
+            <br/>
+
+            <legend>How to use?</legend>
+            ./
+<pre>
+-/application       # Web application code
+-/flask             # Flask framework
+-/gae_mini_profiler # GAE mini profiler
+-/jinja2            # Jinja framework
+-/tests             # Unit tests
+-/werkzeug          # Werkzeug framework
+- app.yaml          # <a href="https://developers.google.com/appengine/docs/python/config/appconfig" target="_blank">GAE app config</a>
+- backends.yaml     # <a href="https://developers.google.com/appengine/docs/python/config/backends" target="_blank">GAE backends config</a>
+- config.py         # Application config
+- cron_jobs.py      # Cron jobs code
+- cron.yaml         # <a href="https://developers.google.com/appengine/docs/python/config/cron" target="_blank">GAE Cron jobs config</a>
+- index.yaml        # <a href="https://developers.google.com/appengine/docs/python/config/indexconfig" target="_blank">GAE datasotre indexes config</a>
+</pre>
+
+            ./application/
+<pre>
+-/data_modelsflask  # <a href="https://developers.google.com/appengine/docs/python/datastore/overview" target="_blank">Datastore</a> data model
+-/handlers          # Web handlers (MVC's controller)
+-/models            # Other models
+-/services          # All business logic here (MVC's model)
+-/static
+    -/css
+    -/icon
+    -/imgs
+    -/javascripts
+    -/minifier      # JavaScript minifier tool
+    - robots.txt
+-/templates         # Jinja templates (MVC's view)
+-/utilities         # Web application's shared utilities
+- __init__.py
+- routes.py         # Web application's routers
+</pre>
+
+            And there is a <a href="/posts">message board</a> example code in this project.<br/>
+            <br/>
+
+            <legend>References</legend>
+            <ul>
+                <li><a href="https://developers.google.com/appengine/docs/python/overview" target="_blank">App Engine Python Overview</a></li>
+                <li>
+                    <a href="https://github.com/mitsuhiko/flask" target="_blank">Flask on GitHub</a>
+                    (<a href="http://flask.pocoo.org/" target="_blank">document</a>)
+                </li>
+                <li>
+                    <a href="https://github.com/mitsuhiko/jinja2" target="_blank">Jinja2 on GitHub</a>
+                    (<a href="http://jinja.pocoo.org/" target="_blank">document</a>)
+                </li>
+                <li>
+                    <a href="https://github.com/mitsuhiko/werkzeug" target="_blank">Werkzeug on GitHub</a>
+                    (<a href="http://werkzeug.pocoo.org/" target="_blank">document</a>)
+                </li>
+                <li><a href="https://github.com/kamens/gae_mini_profiler" target="_blank">Google App Engine Mini Profiler on GitHub</a></li>
+                <li><a href="https://github.com/rspivak/slimit" target="_blank">SlimIt on GitHub</a></li>
+                <li><a href="http://jquery.com/" target="_blank">jQuery</a></li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
