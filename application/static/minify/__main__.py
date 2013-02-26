@@ -3,7 +3,7 @@
     minify core.js to core.min.js
 
     $ cd applicatioin/static
-    $ python minifier
+    $ python minify
 """
 
 
