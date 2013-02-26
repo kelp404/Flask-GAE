@@ -3,6 +3,10 @@ from flask import g, render_template, request, jsonify
 from application.services.posts_service import *
 
 def posts():
+    """
+    search posts
+    :return:
+    """
     try: index = int(request.args.get('index'))
     except: index = 0
     keyword = request.args.get('keyword')
@@ -24,6 +28,10 @@ def posts():
     return render_template('board.html', **g.view_model)
 
 def post_add():
+    """
+    create a post
+    :return:
+    """
     title = request.form.get('title')
     content = request.form.get('content')
 
@@ -33,6 +41,11 @@ def post_add():
     return jsonify({'success': success})
 
 def post_delete(post_id=None):
+    """
+    delete the post
+    :param post_id: text search document id
+    :return:
+    """
     ps = PostsService()
     success = ps.delete_post(post_id)
 

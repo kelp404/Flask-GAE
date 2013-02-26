@@ -281,6 +281,17 @@ var core = core || {
             });
         }
     },
+    register_event_chat: {
+        set_up_chat: function () {
+            var chat_token = window.localStorage['chat_token'];
+            $.ajax({ type: 'post', url: '/chat_setup', dataType: 'json', cache: false,
+                data: { chat_token: chat_token },
+                success: function (result) {
+                    window.localStorage['chat_token'] = result.token;
+                }
+            });
+        }
+    },
     setup_events: function () {
         // all setup event object should be a member in core{}, and name 'register_event_xxxx'
         // all functions in setup event objects will be execute on document.ready()
