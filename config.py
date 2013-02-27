@@ -5,6 +5,7 @@ text_search_name = 'PostSchema'
 
 # delete documents after x days
 post_expiration = 30
+channel_expiration = 7
 
 # data result pager size
 page_size = 10

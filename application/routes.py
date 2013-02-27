@@ -19,4 +19,5 @@ app.add_url_rule('/posts/<post_id>', 'posts_delete', view_func=post_delete, meth
 
 # Chat
 app.add_url_rule('/chat', 'chat', view_func=chat, methods=['GET'])
-app.add_url_rule('/chat_setup', 'chat_setup', view_func=chat_setup, methods=['POST'])
+app.add_url_rule('/chat/setup', 'chat_setup', view_func=chat_setup, methods=['POST'])
+app.add_url_rule('/chat/send_msg', 'chat_send_msg', view_func=chat_send_message, methods=['POST'])

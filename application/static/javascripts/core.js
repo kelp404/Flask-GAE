@@ -58,6 +58,7 @@ var KNotification = KNotification || {
 var core = core || {
     text_loading: 'Loading...',
     is_safari: false,
+    socket: null,
     // みこ ←↖↑↗→↘↓↙←↖↑↗→↘↓↙←↖↑↗→↘↓↙←↖↑↗→↘↓↙←↖↑↗→↘↓↙←↖↑↗→↘↓↙
     pop_state: function (state) {
         if (state) {
@@ -113,9 +114,7 @@ var core = core || {
                     // update content
                     $(content[1]).html(result.replace(content[0], ''));
                 }
-                core.setup_datetime();
-                core.setup_focus();
-                core.setup_tooltip();
+                core.after_page_loaded();
             }
         });
     },
@@ -222,6 +221,46 @@ var core = core || {
     },
 
     // events of views ←↖↑↗→↘↓↙←↖↑↗→↘↓↙←↖↑↗→↘↓↙←↖↑↗→↘↓↙←↖↑↗→↘↓↙←↖↑↗→↘↓↙
+    after_page_loaded: function () {
+        core.setup_datetime();
+        core.setup_chat();
+        core.setup_focus();
+        core.setup_tooltip();
+    },
+    setup_chat: function () {
+        // setup_chat
+        if ($('#chat').length > 0) {
+            var chat_token = window.sessionStorage['chat_token'];
+            $.ajax({ type: 'post', url: '/chat/setup', dataType: 'json', cache: false,
+                data: { chat_token: chat_token },
+                success: function (result) {
+                    window.sessionStorage['chat_token'] = result.chat_token;
+                    $('#chat_name').val(result.name);
+                    channel = new goog.appengine.Channel(result.channel_token);
+                    core.socket = channel.open();
+                    core.socket.onopen = core.chat_on_opened;
+                    core.socket.onmessage = core.chat_on_message;
+                }
+            });
+        }
+        else if (core.socket) {
+            core.socket.close();
+        }
+    },
+    chat_on_opened: function () {
+        console.log('opened');
+    },
+    chat_on_message: function (msg) {
+        msg = JSON.parse(msg.data);
+        if (msg.rename) {
+            $('#chat_board').append(msg.rename.old_name + ' rename to ' + msg.rename.new_name + '\n');
+            $('#chat_name').val(msg.rename.new_name);
+        }
+        if (msg.message) {
+            $('#chat_board').append(msg.name + ': ' + msg.message + '\n');
+        }
+        $('#chat_board').animate({scrollTop: ($('#chat_board').prop('scrollHeight'))}, 500, 'easeOutExpo');
+    },
     register_event_enter_submit: {
         enter_submit: function () {
             // .enter-submit.keypress() Ctrl + Enter then submit the form
@@ -230,6 +269,26 @@ var core = core || {
                     $(this).closest('form').submit();
                     return false;
                 }
+            });
+        }
+    },
+    register_event_chat: {
+        send_msg: function () {
+            $(document).on('submit', 'form#form_chat_input', function () {
+                var chat_token = window.sessionStorage['chat_token'];
+                $.ajax({ type: 'post', url: '/chat/send_msg', dataType: 'json', cache: false,
+                    data: {
+                        token: chat_token,
+                        msg: $('#chat_msg').val(),
+                        name: $('#chat_name').val()
+                    },
+                    success: function (result) {
+                        if (result.success) {
+                            $('#chat_msg').val('');
+                        }
+                    }
+                });
+                return false;
             });
         }
     },
@@ -281,17 +340,6 @@ var core = core || {
             });
         }
     },
-    register_event_chat: {
-        set_up_chat: function () {
-            var chat_token = window.localStorage['chat_token'];
-            $.ajax({ type: 'post', url: '/chat_setup', dataType: 'json', cache: false,
-                data: { chat_token: chat_token },
-                success: function (result) {
-                    window.localStorage['chat_token'] = result.token;
-                }
-            });
-        }
-    },
     setup_events: function () {
         // all setup event object should be a member in core{}, and name 'register_event_xxxx'
         // all functions in setup event objects will be execute on document.ready()
@@ -318,8 +366,5 @@ $(document).ready(function () {
     core.setup_events();
 
     // that will be execute after miko call
-    // set up datetime display
-    core.setup_datetime();
-    core.setup_focus();
-    core.setup_tooltip();
+    core.after_page_loaded();
 });

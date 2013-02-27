@@ -2,11 +2,6 @@
 from application.data_models.count_model import *
 import logging
 
-class DocumentModel(object):
-    exception = 1
-    log = 2
-    crash = 3
-
 class BaseService(object):
     # return count of name
     def count(self, name):
