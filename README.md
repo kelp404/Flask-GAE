@@ -63,8 +63,8 @@ And uses <a href="http://www.whatwg.org/specs/web-apps/current-work/#history-0" 
 
 
 ##Example application
-Board: <a href="https://flask-gae-kelp.appspot.com/posts" target="_blank">https://flask-gae-kelp.appspot.com/board</a>  
-Chat: <a href="https://flask-gae-kelp.appspot.com/chat" target="_blank">https://flask-gae-kelp.appspot.com/chat</a>  
+Board: https://flask-gae-kelp.appspot.com/posts  
+Chat: https://flask-gae-kelp.appspot.com/chat  
 
 
 ##appcfg.py
