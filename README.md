@@ -13,7 +13,7 @@ Kelp http://kelp.phate.org/
 ```
 
 This project is my <a href="https://developers.google.com/appengine/" target="_blank">GAE</a> project template.  
-And uses <a href="http://www.whatwg.org/specs/web-apps/current-work/#history-0" target="_blank">History</a> to link pages, so that all hyperlinks are ajax.  
+And the example application uses <a href="http://www.whatwg.org/specs/web-apps/current-work/#history-0" target="_blank">History</a> to link pages, so that all hyperlinks are ajax.  
 
 
 ##Frameworks
@@ -27,38 +27,38 @@ And uses <a href="http://www.whatwg.org/specs/web-apps/current-work/#history-0" 
 
 ##How to use?
 ./
-```Python
--/application       # Web application code
--/flask             # Flask framework
--/gae_mini_profiler # GAE mini profiler
--/jinja2            # Jinja framework
--/tests             # Unit tests
--/werkzeug          # Werkzeug framework
-- app.yaml          # GAE app config
-- backends.yaml     # GAE backends config
-- config.py         # Application config
-- cron_jobs.py      # Cron jobs code
-- cron.yaml         # GAE Cron jobs config
-- index.yaml        # GAE datasotre indexes config
+```
+├─ application       # Web application code
+├─ flask             # Flask framework
+├─ gae_mini_profiler # GAE mini profiler
+├─ jinja2            # Jinja framework
+├─ tests             # Unit tests
+├─ werkzeug          # Werkzeug framework
+├─ app.yaml          # GAE app config
+├─ backends.yaml     # GAE backends config
+├─ config.py         # Application config
+├─ cron_jobs.py      # Cron jobs code
+├─ cron.yaml         # GAE Cron jobs config
+└─ index.yaml        # GAE datasotre indexes config
 ```
 
 ./application/
-```Python
--/data_modelsflask  # Datastore data model
--/handlers          # Web handlers (MVC's controller)
--/models            # Other models
--/services          # All business logic here (MVC's model)
--/static
-    -/css
-    -/icon
-    -/imgs
-    -/javascripts
-    -/minify      # JavaScript minify tool
-    - robots.txt
--/templates         # Jinja templates (MVC's view)
--/utilities         # Web application's shared utilities(helpers)
-- __init__.py
-- routes.py         # Web application's routers
+```
+├─ data_modelsflask  # Datastore data model
+├─ handlers          # Web handlers (MVC's controller)
+├─ models            # Other models
+├─ services          # All business logic here (MVC's model)
+├─ static
+│  ├─ css
+│  ├─ icon
+│  ├─ imgs
+│  ├─ javascripts
+│  ├─ minify         # JavaScript minify tool
+│  └─ robots.txt
+├─ templates         # Jinja templates (MVC's view)
+├─ utilities         # Web application's shared utilities(helpers)
+├─ __init__.py
+└─ routes.py         # Web application's routers
 ```
 
 
