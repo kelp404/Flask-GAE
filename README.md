@@ -120,5 +120,6 @@ Python unit test reference: <a href="http://docs.python.org/2/library/unittest.h
 + <a href="https://github.com/mitsuhiko/itsdangerous" target="_blank">itsdangerous on GitHub</a>
 + <a href="https://github.com/kamens/gae_mini_profiler" target="_blank">Google App Engine Mini Profiler on GitHub</a>
 + <a href="https://github.com/rspivak/slimit" target="_blank">SlimIt on GitHub</a>
++ <a href="https://github.com/kennethreitz/requests" target="_blank">Requests on GitHub</a>
 + <a href="http://twitter.github.com/bootstrap/" target="_blank">Bootstrap</a>
 + <a href="http://jquery.com/" target="_blank">jQuery</a>
