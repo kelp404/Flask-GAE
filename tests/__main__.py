@@ -12,7 +12,7 @@ import unittest, json, re, random
 import requests
 
 
-class TestTakanashiFunctions(unittest.TestCase):
+class TestFunctions(unittest.TestCase):
     def setUp(self):
         self.url = 'http://localhost:8081'
         self.email = 'kelp@phate.org'
