@@ -12,7 +12,7 @@ from slimit import minify
 # read base javascript
 base = open('./javascripts/base.min.js', 'r').read()
 # read core.js and minify
-core = minify(open('./javascripts/core.js', 'r').read(), mangle=True, mangle_toplevel=False)
+core = minify(open('./coffees/core.js', 'r').read(), mangle=True, mangle_toplevel=True)
 
 # write to the file
 f = open('./javascripts/core.min.js', 'w')

@@ -21,6 +21,7 @@ And the example application uses <a href="http://www.whatwg.org/specs/web-apps/c
 + Jinja 2.6 Sep 15, 2012 @21a2010
 + Werkzeug 0.8.3 Feb 20, 2013 @9d53c19
 + Bootstrap 2.3
++ CoffeeScript 1.5
 + jQuery 1.9.1
 
 
@@ -49,6 +50,7 @@ And the example application uses <a href="http://www.whatwg.org/specs/web-apps/c
 ├─ models            # Other models
 ├─ services          # All business logic here (MVC's model)
 ├─ static
+│  ├─ coffees        # CoffeeScript
 │  ├─ css
 │  ├─ icon
 │  ├─ imgs
@@ -67,21 +69,45 @@ Board: https://flask-gae-kelp.appspot.com/posts
 Chat: https://flask-gae-kelp.appspot.com/chat  
 
 
-##appcfg.py
-**Update backends**
-```
-appcfg.py backends myapp/ update
+##Deploy with <a href="https://developers.google.com/appengine/downloads#Google_App_Engine_SDK_for_Python" target="_blank">appcfg.py</a>
+You should create a GAE account.  
+https://appengine.google.com  
+  
+###update `app.yaml`
+```Python
+application: flask-gae-kelp
+'flask-gae-kelp' should replace to your Application Identifier.
 ```
 
-**Deleting Unused Indexes on Google App Engine**
+###deploy project
+**deploy**
+```Python
+appcfg.py update Flask-GAE/
+* Flask-GAE is the folder name of the project
+```
+**deploy backends**
+```
+appcfg.py backends Flask-GAE/ update
+```
+
+###deleting unused indexes
 ```
 appcfg.py vacuum_indexes myapp/
 # https://developers.google.com/appengine/docs/python/tools/uploadinganapp?hl=en#Deleting_Unused_Indexes
 ```
 
 
+##CoffeeScript compile
+You should install <a href="https://github.com/joyent/node" target="_blank">node.js</a> and <a href="https://github.com/jashkenas/coffee-script" target="_blank">coffee-script</a>.
+```
+$ cd Flask-GAE/applicatioin/static
+$ coffee -c coffees/core.coffee
+```
+
+
+
 ##JavaScript minify
-All JavaScript should write in /application/static/javascripts/core.js, do not write in *.html.
+All JavaScript should write in /application/static/coffees/core.js, do not write in *.html.
 ```
 $ cd Flask-GAE/applicatioin/static
 $ python minify
@@ -91,7 +117,7 @@ $ python minify
 ##Unittest
 Before test, you should run GAE local server, and clear datastore, text search, and update url in function 'setUp()'.
 ```Python
-class TestTakanashiFunctions(unittest.TestCase):
+class TestFunctions(unittest.TestCase):
     def setUp(self):
         self.url = 'http://localhost:8081'
         self.email = 'kelp@phate.org'
@@ -122,4 +148,6 @@ Python unit test reference: <a href="http://docs.python.org/2/library/unittest.h
 + <a href="https://github.com/rspivak/slimit" target="_blank">SlimIt on GitHub</a>
 + <a href="https://github.com/kennethreitz/requests" target="_blank">Requests on GitHub</a>
 + <a href="http://twitter.github.com/bootstrap/" target="_blank">Bootstrap</a>
++ <a href="https://github.com/jashkenas/coffee-script" target="_blank">CoffeeScript on GitHub</a>
+(<a href="http://coffeescript.org/" target="_blank">document</a>)
 + <a href="http://jquery.com/" target="_blank">jQuery</a>
