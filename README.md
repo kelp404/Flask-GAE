@@ -21,7 +21,6 @@ And the example application uses <a href="http://www.whatwg.org/specs/web-apps/c
 + Jinja 2.6 Sep 15, 2012 @21a2010
 + Werkzeug 0.8.3 Feb 20, 2013 @9d53c19
 + Bootstrap 2.3
-+ CoffeeScript 1.5
 + jQuery 1.9.1
 
 
@@ -101,13 +100,12 @@ appcfg.py vacuum_indexes myapp/
 You should install <a href="https://github.com/joyent/node" target="_blank">node.js</a> and <a href="https://github.com/jashkenas/coffee-script" target="_blank">coffee-script</a>.
 ```
 $ cd Flask-GAE/applicatioin/static
-$ coffee -c coffees/core.coffee
+$ coffee -c coffees
 ```
 
 
 
 ##JavaScript minify
-All JavaScript should write in /application/static/coffees/core.js, do not write in *.html.
 ```
 $ cd Flask-GAE/applicatioin/static
 $ python minify

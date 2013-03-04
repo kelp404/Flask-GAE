@@ -11,11 +11,14 @@ from slimit import minify
 
 # read base javascript
 base = open('./javascripts/base.min.js', 'r').read()
-# read core.js and minify
-core = minify(open('./coffees/core.js', 'r').read(), mangle=True, mangle_toplevel=True)
+# read KNotification.js, view_events.js, core.js and minify
+notification = open('./coffees/KNotification.js', 'r').read()
+core = open('./coffees/core.js', 'r').read()
+view_events = open('./coffees/view_events.js', 'r').read()
+compressed = minify(notification + core + view_events, mangle=True, mangle_toplevel=True)
 
 # write to the file
 f = open('./javascripts/core.min.js', 'w')
 f.write(base)
 f.write("\n\n")
-f.write(core)
+f.write(compressed)
