@@ -27,6 +27,7 @@ skip_files:
 - \.*\.lint$
 - ^_images/.*
 - ^application/static/minify/.*
+- ^application/static/coffees/.*
 
 handlers:
 # icon / robots.txt

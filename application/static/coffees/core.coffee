@@ -131,7 +131,7 @@ core =
 
         # form get
         $(document).on 'submit', 'form[method=get]:not([action*="#"])', ->
-            href = $(@).attr 'action' + '?' + $(@).serialize()
+            href = $(@).attr('action') + '?' + $(@).serialize()
             core.miko href: href, true
             return false
 

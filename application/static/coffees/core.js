@@ -165,7 +165,7 @@
       });
       $(document).on('submit', 'form[method=get]:not([action*="#"])', function() {
         var href;
-        href = $(this).attr('action' + '?' + $(this).serialize());
+        href = $(this).attr('action') + '?' + $(this).serialize();
         core.miko({
           href: href
         }, true);
