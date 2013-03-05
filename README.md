@@ -96,20 +96,13 @@ appcfg.py vacuum_indexes myapp/
 ```
 
 
-##CoffeeScript compile
+##CoffeeScript compile & JavaScript minify
 You should install <a href="https://github.com/joyent/node" target="_blank">node.js</a> and <a href="https://github.com/jashkenas/coffee-script" target="_blank">coffee-script</a>.
 ```
 $ cd Flask-GAE/applicatioin/static
-$ coffee -c coffees
+$ python jc
 ```
 
-
-
-##JavaScript minify
-```
-$ cd Flask-GAE/applicatioin/static
-$ python minify
-```
 
 
 ##Unittest
