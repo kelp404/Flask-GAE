@@ -4,8 +4,8 @@ class ViewEventsPost
     event of views /posts
     ###
     constructor: ->
-        @.create_post()
-        @.delete_post()
+        @create_post()
+        @delete_post()
         return @
 
     create_post: ->
@@ -24,9 +24,9 @@ class ViewEventsPost
                 error: ->
                     core.loading_off()
                     core.error_message()
-                success: (result) ->
+                success: (r) ->
                     core.loading_off()
-                    if result.success
+                    if r.success
                         core.miko href: location.href, false
                     else
                         KNotification.pop
@@ -47,9 +47,9 @@ class ViewEventsPost
                 error: ->
                     core.loading_off()
                     core.error_message()
-                success: (result) ->
+                success: (r) ->
                     core.loading_off()
-                    if result.success
+                    if r.success
                         core.miko href: location.href, false
                     else
                         KNotification.pop
@@ -63,7 +63,8 @@ class ViewEventChat
     event of views /chat
     ###
     constructor: ->
-        @.send_msg()
+        @send_msg()
+        @chat_board_readonly()
         return @
 
     send_msg: ->
@@ -75,9 +76,13 @@ class ViewEventChat
                     token: chat_token
                     msg: $('#chat_msg').val()
                     name: $('#chat_name').val()
-                success: (result) ->
-                    if result.success
+                success: (r) ->
+                    if r.success
                         $('#chat_msg').val('')
+            return false
+
+    chat_board_readonly: ->
+        $(document).on 'keypress', '#chat_board', ->
             return false
 
 

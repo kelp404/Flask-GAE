@@ -12,6 +12,7 @@ core =
         ###
         if state
             $('.modal.in').modal 'hide'
+            state.is_pop = true
             @miko state, false
         return
 
@@ -31,7 +32,7 @@ core =
                 core.nav_select index
                 xhr.setRequestHeader 'X-Miko', 'miko'
                 core.loading_on()
-            error: (xhr) ->
+            error: ->
                 core.loading_off()
                 core.error_message()
                 core.nav_select before_index
