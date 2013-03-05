@@ -20,7 +20,7 @@ And the example application uses <a href="http://www.whatwg.org/specs/web-apps/c
 + Flask 0.9 Jan 29, 2013 @bfeee75
 + Jinja 2.6 Sep 15, 2012 @21a2010
 + Werkzeug 0.8.3 Feb 20, 2013 @9d53c19
-+ Bootstrap 2.3
++ Bootstrap 2.3.1
 + jQuery 1.9.1
 
 
@@ -44,7 +44,7 @@ And the example application uses <a href="http://www.whatwg.org/specs/web-apps/c
 
 ./application/
 ```
-├─ data_modelsflask  # Datastore data model
+├─ data_models       # Datastore data model
 ├─ handlers          # Web handlers (MVC's controller)
 ├─ models            # Other models
 ├─ services          # All business logic here (MVC's model)
