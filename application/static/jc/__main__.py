@@ -19,6 +19,10 @@ p.wait()
 
 # get .js file list
 js_files = ['./coffees/' + f for f in os.listdir('./coffees/') if f.endswith(".js")]
+coffee_files = [f for f in os.listdir('./coffees/') if f.endswith(".coffee")]
+if len(coffee_files) != len(js_files):
+    # files count not match
+    exit('error')
 
 # read .js files
 file_data = ''.join([open(x, 'r').read() for x in js_files])

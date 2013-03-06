@@ -36,7 +36,7 @@ core =
                 core.loading_off()
                 core.error_message()
                 core.nav_select before_index
-            success: (result) ->
+            success: (r) ->
                 core.loading_off()
 
                 # push state
@@ -46,21 +46,20 @@ core =
                         history.pushState(state, document.title, state.href)
                     $('html, body').animate scrollTop: 0, 500, 'easeOutExpo'
 
-                miko = result.match(/<!miko>/)
+                miko = r.match(/<!miko>/)
                 if !miko
                     location.reload()
                     return
 
-                title = result.match(/<title>(.*)<\/title>/)
-                result = result.replace(title[0], '')
+                title = r.match(/<title>(.*)<\/title>/)
+                r = r.replace(title[0], '')
                 document.title = title[1]
-                content = result.match(/\s@([#.]?\w+)/)
+                content = r.match(/\s@([#.]?\w+)/)
                 if content
                     # update content
-                    $(content[1]).html result.replace(content[0], '')
+                    $(content[1]).html r.replace(content[0], '')
                 core.after_page_loaded()
-
-        return false
+        false
 
     error_message: ->
         ###
@@ -85,7 +84,7 @@ core =
                     if $(@).attr 'msg'
                         $(@).parent().append $('<label for="' + $(@).attr('id') + '" class="error_msg help-inline">' + $(@).attr('msg') + '</label>')
                     success = false
-        return success
+        success
 
     loading_on: ->
         ###
@@ -134,14 +133,14 @@ core =
         $(document).on 'submit', 'form[method=get]:not([action*="#"])', ->
             href = $(@).attr('action') + '?' + $(@).serialize()
             core.miko href: href, true
-            return false
+            false
 
         # form post
         $(document).on 'submit', 'form[method=post]:not([action*="#"])', ->
             if core.validation $(@)
                 href = $(@).attr 'action'
                 core.miko href: href, data: $(@).serialize(), false
-            return false
+            false
 
     setup_enter_submit: ->
         ###
@@ -150,7 +149,7 @@ core =
         $(document).on 'keypress', '.enter-submit', (e) ->
             if e.keyCode == 13 and e.ctrlKey
                 $(@).closest('form').submit()
-                return false
+                false
 
     after_page_loaded: ->
         ###
@@ -192,10 +191,10 @@ core =
                 type: 'post', url: '/chat/setup', dataType: 'json', cache: false
                 data:
                     chat_token: chat_token
-                success: (result) ->
-                    window.sessionStorage['chat_token'] = result.chat_token
-                    $('#chat_name').val result.name
-                    channel = new goog.appengine.Channel result.channel_token
+                success: (r) ->
+                    window.sessionStorage['chat_token'] = r.chat_token
+                    $('#chat_name').val r.name
+                    channel = new goog.appengine.Channel r.channel_token
                     core.socket = channel.open()
                     # core.socket.onopen = core.chat_on_opened
                     core.socket.onmessage = core.chat_on_message

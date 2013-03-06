@@ -6,7 +6,7 @@ class ViewEventsPost
     constructor: ->
         @create_post()
         @delete_post()
-        return @
+        @
 
     create_post: ->
         ###
@@ -32,7 +32,7 @@ class ViewEventsPost
                         KNotification.pop
                             title: 'Failed'
                             message: 'Please check again.'
-            return false
+            false
 
     delete_post: ->
         ###
@@ -55,7 +55,7 @@ class ViewEventsPost
                         KNotification.pop
                             title: 'Failed!'
                             message: 'You could not delete this post.'
-            return false
+            false
 
 
 class ViewEventChat
@@ -65,7 +65,7 @@ class ViewEventChat
     constructor: ->
         @send_msg()
         @chat_board_readonly()
-        return @
+        @
 
     send_msg: ->
         $(document).on 'submit', 'form#form_chat_input', ->
@@ -79,11 +79,10 @@ class ViewEventChat
                 success: (r) ->
                     if r.success
                         $('#chat_msg').val('')
-            return false
+            false
 
     chat_board_readonly: ->
-        $(document).on 'keypress', '#chat_board', ->
-            return false
+        $(document).on 'keypress', '#chat_board', -> false
 
 
 # event of views
@@ -91,7 +90,7 @@ class ViewEvents
     constructor: ->
         new ViewEventsPost()
         new ViewEventChat()
-        return @
+        @
 
 
 $ ->
