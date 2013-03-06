@@ -10,6 +10,7 @@
 
 import unittest, json, re, random
 import requests
+from bs4 import BeautifulSoup
 
 
 class TestFunctions(unittest.TestCase):
@@ -25,7 +26,8 @@ class TestFunctions(unittest.TestCase):
         """
         r = requests.get('%s/aaa' % self.url, allow_redirects=False)
         self.assertEqual(r.status_code, 404)
-        self.assertRegexpMatches(r.content, '<div class="status">404</div>')
+        soup = BeautifulSoup(r.content)
+        self.assertEqual(soup.findAll('div', {'class': 'status'})[0].contents[0], '404')
 
     def test_405_page(self):
         """
@@ -33,7 +35,8 @@ class TestFunctions(unittest.TestCase):
         """
         r = requests.post('%s/login' % self.url, allow_redirects=False)
         self.assertEqual(r.status_code, 405)
-        self.assertRegexpMatches(r.content, '<div class="status">405</div>')
+        soup = BeautifulSoup(r.content)
+        self.assertEqual(soup.findAll('div', {'class': 'status'})[0].contents[0], '405')
 
     def test_login_page(self):
         """
@@ -41,7 +44,8 @@ class TestFunctions(unittest.TestCase):
         """
         r = requests.get('%s/login' % self.url)
         self.assertEqual(r.status_code, 200)
-        self.assertRegexpMatches(r.content, '.*<legend>Sign In</legend>.*')
+        soup = BeautifulSoup(r.content)
+        self.assertEqual(soup.findAll('legend')[0].contents[0], 'Sign In')
 
     def test_00_home_page(self):
         """
