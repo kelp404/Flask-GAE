@@ -1,6 +1,6 @@
 #Flask on Google App Engine Template
 
-Kelp http://kelp.phate.org/  
+Kelp https://twitter.com/kelp404  
 [MIT License][mit]  
 [MIT]: http://www.opensource.org/licenses/mit-license.php
 
@@ -54,7 +54,7 @@ And the example application uses <a href="http://www.whatwg.org/specs/web-apps/c
 │  ├─ icon
 │  ├─ imgs
 │  ├─ javascripts
-│  ├─ minify         # JavaScript minify tool
+│  ├─ jc             # JavaScript compiler
 │  └─ robots.txt
 ├─ templates         # Jinja templates (MVC's view)
 ├─ utilities         # Web application's shared utilities(helpers)
@@ -135,10 +135,11 @@ Python unit test reference: <a href="http://docs.python.org/2/library/unittest.h
 + <a href="https://github.com/mitsuhiko/werkzeug" target="_blank">Werkzeug on GitHub</a>
 (<a href="http://werkzeug.pocoo.org/" target="_blank">document</a>)
 + <a href="https://github.com/mitsuhiko/itsdangerous" target="_blank">itsdangerous on GitHub</a>
-+ <a href="https://github.com/kamens/gae_mini_profiler" target="_blank">Google App Engine Mini Profiler on GitHub</a>
-+ <a href="https://github.com/rspivak/slimit" target="_blank">SlimIt on GitHub</a>
-+ <a href="https://github.com/kennethreitz/requests" target="_blank">Requests on GitHub</a>
 + <a href="http://twitter.github.com/bootstrap/" target="_blank">Bootstrap</a>
 + <a href="https://github.com/jashkenas/coffee-script" target="_blank">CoffeeScript on GitHub</a>
 (<a href="http://coffeescript.org/" target="_blank">document</a>)
 + <a href="http://jquery.com/" target="_blank">jQuery</a>
++ <a href="https://github.com/kamens/gae_mini_profiler" target="_blank">Google App Engine Mini Profiler on GitHub</a>
++ <a href="https://github.com/rspivak/slimit" target="_blank">SlimIt on GitHub</a>
++ <a href="https://github.com/kennethreitz/requests" target="_blank">Requests on GitHub</a>
++ <a href="http://www.crummy.com/software/BeautifulSoup/bs4/doc/" target="_blank">Beautiful Soup</a>
