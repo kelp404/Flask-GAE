@@ -15,7 +15,7 @@ class ViewEventsPost
         :param data: $(@).serialize()
         ###
         $(document).on 'submit', 'form#form_create_post', ->
-            if !core.validation $(@) then return false
+            return false if !core.validation $(@)
 
             $.ajax
                 type: 'post', url: $(@).attr('action'), data: $(@).serialize(), dataType: 'json', cache: false

@@ -21,7 +21,7 @@ KNotification =
         arg.message ?= ''
 
         nid = @prefix + ++@increment_id
-        box = $ '<div id="' + nid + '" class="knotification"><div class="ntitle">' + arg.title + '</div><div class="nmessage">' + arg.message + '</div></div>'
+        box = $ "<div id='#{nid}' class='knotification'><div class='ntitle'>" + arg.title + '</div><div class="nmessage">' + arg.message + '</div></div>'
         top = @queue.length * @height
         @queue.push nid
         $('body').append box
