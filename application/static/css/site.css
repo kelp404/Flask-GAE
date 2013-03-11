@@ -47,31 +47,24 @@
 
 /* font-family */
 @font-face {
-    font-family: MyCustomFont;
+    font-family: CustomFont;
     src: local("ヒラギノ角ゴ ProN"), local("Hiragino Kaku Gothic ProN"),
     local(Ubuntu),
     local("Microsoft JhengHei");
 }
 /* Latin */
 @font-face {
-    font-family: MyCustomFont;
+    font-family: CustomFont;
     unicode-range: U+00-024F, U+203F;
     src: local(Helvetica),
     local(Ubuntu),
     local(Arial);
 }
 
-@font-face {
-    font-family: 'Segoe Print';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Segoe Print'), local('SegoePrint'), url('/css/segoepr.ttf');
-}
-
 body
 {
     font-size: 13px;
-    font-family: MyCustomFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: CustomFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #232323;
     background: url(/css/dust.png);
 }
@@ -99,10 +92,6 @@ body
     text-align:center;
     font-weight:bolder;
 }
-footer a{ color:#eee;text-decoration: none;}
-footer a:link{ color:#eee;text-decoration: none;}
-footer a:visited{ color:#eee;text-decoration: none;}
-footer a:hover{ color:#eee; }
 
 
 /* shared */
