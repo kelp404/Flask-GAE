@@ -26,6 +26,10 @@ And the example application uses <a href="http://www.whatwg.org/specs/web-apps/c
 
 
 ##How to use?
+```
+git clone --recursive git://github.com/kelp404/Flask-GAE.git
+```
+
 ./
 ```
 ├─ application       # Web application code
