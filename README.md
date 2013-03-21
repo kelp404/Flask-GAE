@@ -22,6 +22,7 @@ And the example application uses <a href="http://www.whatwg.org/specs/web-apps/c
 + Werkzeug 0.8.3 Feb 20, 2013 @9d53c19
 + Bootstrap 2.3.1
 + jQuery 1.9.1
++ Google App Engine Launcher 1.7.6
 
 
 
@@ -120,7 +121,7 @@ class TestFunctions(unittest.TestCase):
 ```
 clear datastore & text search:
 ```
---clear_datastore --clear_search_indexes
+--clear_datastore=yes --clear_search_indexes=yes
 ```
 ```
 $ cd Flask-GAE
@@ -131,7 +132,8 @@ Python unit test reference: <a href="http://docs.python.org/2/library/unittest.h
 
 
 ##References
-+ <a href="https://developers.google.com/appengine/docs/python/overview" target="_blank">App Engine Python Overview</a>
++ <a href="https://developers.google.com/appengine/downloads" target="_blank">Google App Engine SDK</a>
++ <a href="https://developers.google.com/appengine/docs/python/overview" target="_blank">Google App Engine Python Overview</a>
 + <a href="https://github.com/mitsuhiko/flask" target="_blank">Flask on GitHub</a>
 (<a href="http://flask.pocoo.org/" target="_blank">document</a>)
 + <a href="https://github.com/mitsuhiko/jinja2" target="_blank">Jinja2 on GitHub</a>
