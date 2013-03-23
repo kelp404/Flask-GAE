@@ -1,14 +1,14 @@
 """
     Before test, you should run GAE local server, and clear datastore, text search,
      and update url in function 'setUp()'.
-    --clear_datastore --clear_search_indexes
+    --clear_datastore=yes --clear_search_indexes=yes
 
     unittest:
         $ cd Flask-GAE
         $ python tests
 """
 
-import unittest, json, re, random
+import unittest, json, re
 import requests
 from bs4 import BeautifulSoup
 
