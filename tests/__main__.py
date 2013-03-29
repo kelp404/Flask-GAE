@@ -63,8 +63,6 @@ class TestFunctions(unittest.TestCase):
         # create a post
         r = requests.post('%s/posts' % self.url, cookies=self.cookies, data={'title': 'title-X', 'content': 'content-X'})
         self.assertEqual(r.status_code, 200)
-        result = json.loads(r.content)
-        self.assertTrue(result['success'])
 
         # get posts
         r = requests.get('%s/posts' % self.url, cookies=self.cookies)

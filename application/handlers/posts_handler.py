@@ -36,9 +36,9 @@ def post_add():
     content = request.form.get('content')
 
     ps = PostsService()
-    success = ps.create_post(title, content)
+    ps.create_post(title, content)
 
-    return jsonify({'success': success})
+    return posts()
 
 def post_delete(post_id=None):
     """

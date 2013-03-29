@@ -23,8 +23,10 @@ core =
         :param push: true -> push into history, false do not push into history
         ###
         before_index = $('#nav_bar li.active').index()
+        state.method ?= 'get'
+        push = false if state.method != 'get'
         $.ajax
-            url: state.href, type: 'get', cache: false, data: state.data
+            url: state.href, type: state.method, cache: false, data: state.data
             # fixed flash when pop state in safari
             async: !(core.is_safari and state.is_pop)
             beforeSend: (xhr) ->
@@ -139,7 +141,8 @@ core =
         $(document).on 'submit', 'form[method=post]:not([action*="#"])', ->
             if core.validation $(@)
                 href = $(@).attr 'action'
-                core.miko href: href, data: $(@).serialize(), false
+                core.miko {href: href, data: $(@).serialize(), method: 'post'}
+                $('.modal.in').modal 'hide'
             false
 
     setup_enter_submit: ->

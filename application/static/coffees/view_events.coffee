@@ -4,35 +4,8 @@ class ViewEventsPost
     event of views /posts
     ###
     constructor: ->
-        @create_post()
         @delete_post()
         @
-
-    create_post: ->
-        ###
-        create a post
-        :param url: $(@).attr('action')
-        :param data: $(@).serialize()
-        ###
-        $(document).on 'submit', 'form#form_create_post', ->
-            return false if !core.validation $(@)
-
-            $.ajax
-                type: 'post', url: $(@).attr('action'), data: $(@).serialize(), dataType: 'json', cache: false
-                beforeSend: ->
-                    core.loading_on()
-                error: ->
-                    core.loading_off()
-                    core.error_message()
-                success: (r) ->
-                    core.loading_off()
-                    if r.success
-                        core.miko href: location.href, false
-                    else
-                        KNotification.pop
-                            title: 'Failed'
-                            message: 'Please check again.'
-            false
 
     delete_post: ->
         ###
