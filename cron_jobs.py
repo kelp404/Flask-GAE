@@ -14,7 +14,7 @@ class ClearPostsHandler(webapp2.RequestHandler):
     def get(self):
         # clear posts
         date_tag = datetime.datetime.now() - datetime.timedelta(days=config.post_expiration)
-        options = search.QueryOptions(returned_fields = [])
+        options = search.QueryOptions(returned_fields=['doc_id'])
         query = search.Query(query_string='create_time<=%s' % date_tag.strftime('%Y-%m-%d'), options=options)
         self.__delete_text_search(config.text_search_name, query)
 
