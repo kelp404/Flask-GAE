@@ -25,9 +25,7 @@ class ViewEventsPost
                     if r.success
                         core.miko href: location.href, false
                     else
-                        KNotification.pop
-                            title: 'Failed!'
-                            message: 'You could not delete this post.'
+                        $.av.pop {title: 'Error', message: 'You could not delete this post.', template: 'error'}
             false
 
 
@@ -75,5 +73,5 @@ $ ->
     # set up events of views
     new ViewEvents()
 
-    # that will be execute after miko call
+    # that will be executed after miko call
     core.after_page_loaded()
