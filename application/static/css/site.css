@@ -112,8 +112,8 @@
 @font-face {
     font-family: CustomFont;
     src: local("ヒラギノ角ゴ ProN"), local("Hiragino Kaku Gothic ProN"),
-    local(Ubuntu),
-    local("Microsoft JhengHei");
+    local("Ubuntu"),
+    local("微軟正黑體"), local("Microsoft JhengHei");
 }
 /* Latin */
 @font-face {
