@@ -5,7 +5,6 @@ class ViewEventsPost
     ###
     constructor: ->
         @delete_post()
-        @
 
     delete_post: ->
         ###
@@ -36,7 +35,6 @@ class ViewEventChat
     constructor: ->
         @send_msg()
         @chat_board_readonly()
-        @
 
     send_msg: ->
         $(document).on 'submit', 'form#form_chat_input', ->
@@ -61,7 +59,6 @@ class ViewEvents
     constructor: ->
         new ViewEventsPost()
         new ViewEventChat()
-        @
 
 
 $ ->
