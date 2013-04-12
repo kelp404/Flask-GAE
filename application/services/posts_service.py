@@ -41,7 +41,10 @@ class PostsService(BaseService):
             sort_options = search.SortOptions(expressions=[create_time_desc]),
             returned_fields = ['title', 'content', 'author', 'create_time'])
         query = search.Query(query_string, options=options)
-        documents = search.Index(name=config.text_search_name).search(query)
+        try:
+            documents = search.Index(name=config.text_search_name).search(query)
+        except: # schema missing
+            return [], 0
 
         result = []
         for document in documents:
