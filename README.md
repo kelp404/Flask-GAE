@@ -17,12 +17,12 @@ And the example application uses <a href="http://www.whatwg.org/specs/web-apps/c
 
 
 ##Frameworks
-+ Flask 0.9 Jan 29, 2013 @bfeee75
-+ Jinja 2.6 Sep 15, 2012 @21a2010
-+ Werkzeug 0.8.3 Feb 20, 2013 @9d53c19
++ Flask 0.9 Mar 31, 2013 @6309987
++ Jinja 2.6 Apr 12, 2012 @846bdc1
++ Werkzeug 0.8.3 Apr 17, 2013 @0ef8613
 + Bootstrap 2.3.1
-+ jQuery 1.9.1
-+ Google App Engine Launcher 1.7.6
++ jQuery 2.0.0
++ Google App Engine Launcher 1.7.7
 
 
 
