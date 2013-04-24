@@ -4,8 +4,18 @@ core =
     core JavaScript object.
     ###
     is_safari: false
+    is_ie: false
     socket: null
 
+    setup: ->
+        ###
+        setup core
+        ###
+        @setup_nav()
+        @setup_link()
+        @setup_enter_submit()
+        window.onpopstate = (e) -> @pop_state(e.state)
+    
     pop_state: (state) ->
         ###
         pop state
@@ -116,6 +126,9 @@ core =
         setup hyper links and forms to ajax and push history.
         ###
 
+        # ie not supports high level code
+        return if @is_ie
+
         # link
         $(document).on 'click', 'a:not([href*="#"])', (e) ->
             # open in a new tab
@@ -220,3 +233,4 @@ window.core = core
 
 user_agent = navigator.userAgent.toLowerCase()
 core.is_safari = user_agent.indexOf('safari') != -1 and user_agent.indexOf('chrome') == -1
+core.is_ie = user_agent.indexOf('msie') != -1
