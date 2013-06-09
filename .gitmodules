@@ -10,3 +10,19 @@
 	path = submodules/requests
 	url = git://github.com/kennethreitz/requests.git
 	ignore = dirty
+[submodule "submodules/flask"]
+	path = submodules/flask
+	url = git://github.com/mitsuhiko/flask.git
+	ignore = dirty
+[submodule "submodules/jinja2"]
+	path = submodules/jinja2
+	url = git://github.com/mitsuhiko/jinja2.git
+	ignore = dirty
+[submodule "submodules/werkzeug"]
+	path = submodules/werkzeug
+	url = git://github.com/mitsuhiko/werkzeug.git
+	ignore = dirty
+[submodule "submodules/itsdangerous"]
+	path = submodules/itsdangerous
+	url = git://github.com/mitsuhiko/itsdangerous.git
+	ignore = dirty
