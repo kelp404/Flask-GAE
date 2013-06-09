@@ -17,9 +17,9 @@ And the example application uses <a href="http://www.whatwg.org/specs/web-apps/c
 
 
 ##Frameworks
-+ Flask 0.9 Mar 31, 2013 @6309987
-+ Jinja 2.6 Apr 12, 2013 @846bdc1
-+ Werkzeug 0.8.3 Apr 17, 2013 @0ef8613
++ Flask 0.9
++ Jinja 2.7
++ Werkzeug 0.8.3
 + Bootstrap 2.3.1
 + jQuery 2.0.0
 + Google App Engine Launcher 1.7.7
@@ -44,6 +44,7 @@ git clone --recursive git://github.com/kelp404/Flask-GAE.git
 ├─ config.py         # Application config
 ├─ cron_jobs.py      # Cron jobs code
 ├─ cron.yaml         # GAE Cron jobs config
+├─ itsdangerous.py
 └─ index.yaml        # GAE datasotre indexes config
 ```
 
