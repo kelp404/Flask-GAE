@@ -41,7 +41,6 @@ git clone --recursive git://github.com/kelp404/Flask-GAE.git
 ├─ werkzeug          # Werkzeug framework
 ├─ app.yaml          # GAE app config
 ├─ backends.yaml     # GAE backends config
-├─ config.py         # Application config
 ├─ cron_jobs.py      # Cron jobs code
 ├─ cron.yaml         # GAE Cron jobs config
 ├─ itsdangerous.py
@@ -65,6 +64,7 @@ git clone --recursive git://github.com/kelp404/Flask-GAE.git
 ├─ templates         # Jinja templates (MVC's view)
 ├─ utilities         # Web application's shared utilities(helpers)
 ├─ __init__.py
+├─ config.py         # Application config
 └─ routes.py         # Web application's routers
 ```
 

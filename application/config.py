@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 app_name = 'Flask on GAE'
 
 # posts text search name
@@ -17,3 +19,5 @@ DEBUG_MODE = False
 if 'SERVER_SOFTWARE' in os.environ and os.environ['SERVER_SOFTWARE'].startswith('Dev'):
     DEBUG_MODE = True
 DEBUG = DEBUG_MODE
+
+compressed_resource = not DEBUG
