@@ -6822,7 +6822,7 @@ a.label:hover, a.label:focus, a.badge:hover, a.badge:focus {
   src: local(Helvetica), local(Ubuntu), local(Arial);
 }
 
-/* line 29, main.scss */
+/* line 30, main.scss */
 body {
   font-size: 13px;
   font-family: CustomFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -6830,7 +6830,7 @@ body {
   background: url(/img/template/dust.png);
 }
 
-/* line 36, main.scss */
+/* line 37, main.scss */
 .cs_row {
   margin-left: -20px;
   *zoom: 1;
@@ -6847,7 +6847,7 @@ body {
 }
 
 /* content */
-/* line 42, main.scss */
+/* line 44, main.scss */
 #content_background {
   background-color: #fff;
   padding: 70px 0 20px 0;
@@ -6855,7 +6855,7 @@ body {
 }
 
 /* footer */
-/* line 50, main.scss */
+/* line 53, main.scss */
 #footer {
   background-color: #f2f2f2;
   background: url(/img/template/dust.png);
@@ -6867,19 +6867,4 @@ body {
   font-size: 13px;
   text-align: center;
   font-weight: bolder;
-}
-
-/* shared */
-/* line 67, main.scss */
-.shadow {
-  -moz-box-shadow: 0 0 12px #555;
-  -webkit-box-shadow: 0 0 12px #555;
-  box-shadow: 0 0 12px #555;
-}
-
-/* line 73, main.scss */
-.radius {
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
 }

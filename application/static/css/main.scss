@@ -25,6 +25,7 @@
     local(Arial);
 }
 
+
 body
 {
     font-size: 13px;
@@ -37,6 +38,7 @@ body
     @include makeRow();
 }
 
+
 /* content */
 #content_background
 {
@@ -44,6 +46,7 @@ body
     padding: 70px 0 20px 0;
     width: 100%;
 }
+
 
 /* footer */
 #footer
@@ -61,17 +64,3 @@ body
     font-weight:bolder;
 }
 
-
-/* shared */
-.shadow
-{
-    -moz-box-shadow: 0 0 12px #555;
-    -webkit-box-shadow: 0 0 12px #555;
-    box-shadow: 0 0 12px #555;
-}
-.radius
-{
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-}
