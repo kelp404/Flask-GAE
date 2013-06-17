@@ -1,16 +1,22 @@
 
+# flask
+from flask import render_template, g, request
+
+# google
 from google.appengine.api import users
-from flask import render_template, g, request, redirect
+
+# application
 import gae_mini_profiler
 from gae_mini_profiler.templatetags import profiler_includes
 from application import app, config
 from application.services.account_service import *
-import logging
+
 
 
 @app.before_request
 def before_request():
     g.view_model = {
+        'compressed': config.compressed_resource,
         'profiler_includes': gae_mini_profiler.templatetags.profiler_includes(),
         'title': '',
         'title_prefix': config.app_name
@@ -29,11 +35,6 @@ def before_request():
     # True: result content
     # False: result all page
     g.view_model['miko'] = 'X-Miko' in request.headers
-
-    # do not redirect without login
-    # if request.url_rule is not None and g.user is None \
-    #     and request.url_rule.endpoint != 'login':
-    #     return redirect('/login')
 
 
 @app.errorhandler(404)
