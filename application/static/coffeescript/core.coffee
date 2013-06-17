@@ -32,7 +32,7 @@ core =
         :param state: history.state
         :param push: true -> push into history, false do not push into history
         ###
-        before_index = $('#nav_bar li.active').index()
+        before_index = $('#js_navigation li.active').index()
         state.method ?= 'get'
         push = false if state.method != 'get'
         $.ajax
@@ -40,9 +40,9 @@ core =
             # fixed flash when pop state in safari
             async: !(core.is_safari and state.is_pop)
             beforeSend: (xhr) ->
-                index = if state.href == '/' then 0 else $('#nav_bar li a[href*="' + state.href + '"]').parent().index()
+                index = if state.href == '/' then 0 else $('#js_navigation li a[href*="' + state.href + '"]').parent().index()
                 core.nav_select index
-                xhr.setRequestHeader 'X-Miko', 'miko'
+                xhr.setRequestHeader 'X-ajax', 'ajax'
                 core.loading_on()
             error: ->
                 core.loading_off()
@@ -54,22 +54,22 @@ core =
                 # push state
                 if push
                     if state.href != location.pathname or location.href.indexOf('?') >= 0
-                        state.nav_select_index = $('#nav_bar li.active').index()
+                        state.nav_select_index = $('#js_navigation li.active').index()
                         history.pushState(state, document.title, state.href)
                     $('html, body').animate scrollTop: 0, 500, 'easeOutExpo'
 
-                miko = r.match(/<!miko>/)
-                if !miko
+                is_ajax = r.match(/<!ajax>/)
+                if !is_ajax
                     location.reload()
                     return
 
-                title = r.match(/<title>(.*)<\/title>/)
-                r = r.replace(title[0], '')
-                document.title = title[1]
-                content = r.match(/\s@([#.]?\w+)/)
-                if content
-                    # update content
-                    $(content[1]).html r.replace(content[0], '')
+                r = r.replace(/<!ajax>/, '')
+                $ajax = $('<div id="js_root">' + r + '</div>')
+                document.title = $ajax.find('title').text()
+                window.cc = $ajax
+                $ajax.find('.js_ajax').each ->
+                    $('#' + $(@).attr('id')).html $(@).children().html()
+
                 core.after_page_loaded()
         false
 
@@ -111,15 +111,15 @@ core =
         ###
         nav bar
         ###
-        if index >= 0 and !$($('#nav_bar li')[index]).hasClass 'active'
-            $('#nav_bar li').removeClass 'active'
-            $($('#nav_bar li')[index]).addClass 'active'
+        if index >= 0 and !$($('#js_navigation li')[index]).hasClass 'active'
+            $('#js_navigation li').removeClass 'active'
+            $($('#js_navigation li')[index]).addClass 'active'
     setup_nav: ->
         match = location.href.match /\w(\/\w*)/
         if match
-            index = if match[1] == '/' then 0 else $('#nav_bar li a[href*="' + match[1] + '"]').parent().index()
-            $('#nav_bar li').removeClass 'active'
-            $($('#nav_bar li')[index]).addClass 'active'
+            index = if match[1] == '/' then 0 else $('#js_navigation li a[href*="' + match[1] + '"]').parent().index()
+            $('#js_navigation li').removeClass 'active'
+            $($('#js_navigation li')[index]).addClass 'active'
 
     setup_link: ->
         ###

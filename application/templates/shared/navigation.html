@@ -1,20 +1,24 @@
-<div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <div class="span12">
-                <a class="brand" href="/">{{ title_prefix }}</a>
-                <ul id="nav_bar" class="nav">
-                    <li class="active"><a href="/">Home</a></li>
-                    <li><a href="/posts">Board</a></li>
-                    <li><a href="/chat">Chat</a></li>
-                </ul>
-                <ul class="nav pull-right">
-                    {% if user %}
-                        <li class="divider-vertical"><a href="{{ logout_url }}#">Sign out</a></li>
-                    {% else %}
-                        <li class="divider-vertical"><a href="{{ login_url }}#">Sign in</a></li>
-                    {% endif %}
-                </ul>
+<div class="cs_navigation">
+    <div class="cs_navigation_inner">
+        <div class="cs_container">
+            <div class="cs_row">
+                <div class="span12">
+                    <a class="cs_logo" href="/">{{ title_prefix }}</a>
+
+                    <ul id="js_navigation">
+                        <li class="active"><a href="/">Home</a></li>
+                        <li><a href="/posts">Board</a></li>
+                        <li><a href="/chat">Chat</a></li>
+                    </ul>
+
+                    <ul class="cs_action">
+                        {% if user %}
+                            <li><a href="{{ logout_url }}#">Sign out</a></li>
+                        {% else %}
+                            <li><a href="{{ login_url }}#">Sign in</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

@@ -41,7 +41,7 @@
       :param push: true -> push into history, false do not push into history
       */
       var before_index;
-      before_index = $('#nav_bar li.active').index();
+      before_index = $('#js_navigation li.active').index();
       if (state.method == null) {
         state.method = 'get';
       }
@@ -56,9 +56,9 @@
         async: !(core.is_safari && state.is_pop),
         beforeSend: function(xhr) {
           var index;
-          index = state.href === '/' ? 0 : $('#nav_bar li a[href*="' + state.href + '"]').parent().index();
+          index = state.href === '/' ? 0 : $('#js_navigation li a[href*="' + state.href + '"]').parent().index();
           core.nav_select(index);
-          xhr.setRequestHeader('X-Miko', 'miko');
+          xhr.setRequestHeader('X-ajax', 'ajax');
           return core.loading_on();
         },
         error: function() {
@@ -67,29 +67,29 @@
           return core.nav_select(before_index);
         },
         success: function(r) {
-          var content, miko, title;
+          var $ajax, is_ajax;
           core.loading_off();
           if (push) {
             if (state.href !== location.pathname || location.href.indexOf('?') >= 0) {
-              state.nav_select_index = $('#nav_bar li.active').index();
+              state.nav_select_index = $('#js_navigation li.active').index();
               history.pushState(state, document.title, state.href);
             }
             $('html, body').animate({
               scrollTop: 0
             }, 500, 'easeOutExpo');
           }
-          miko = r.match(/<!miko>/);
-          if (!miko) {
+          is_ajax = r.match(/<!ajax>/);
+          if (!is_ajax) {
             location.reload();
             return;
           }
-          title = r.match(/<title>(.*)<\/title>/);
-          r = r.replace(title[0], '');
-          document.title = title[1];
-          content = r.match(/\s@([#.]?\w+)/);
-          if (content) {
-            $(content[1]).html(r.replace(content[0], ''));
-          }
+          r = r.replace(/<!ajax>/, '');
+          $ajax = $('<div id="js_root">' + r + '</div>');
+          document.title = $ajax.find('title').text();
+          window.cc = $ajax;
+          $ajax.find('.js_ajax').each(function() {
+            return $('#' + $(this).attr('id')).html($(this).children().html());
+          });
           return core.after_page_loaded();
         }
       });
@@ -154,18 +154,18 @@
       /*
       nav bar
       */
-      if (index >= 0 && !$($('#nav_bar li')[index]).hasClass('active')) {
-        $('#nav_bar li').removeClass('active');
-        return $($('#nav_bar li')[index]).addClass('active');
+      if (index >= 0 && !$($('#js_navigation li')[index]).hasClass('active')) {
+        $('#js_navigation li').removeClass('active');
+        return $($('#js_navigation li')[index]).addClass('active');
       }
     },
     setup_nav: function() {
       var index, match;
       match = location.href.match(/\w(\/\w*)/);
       if (match) {
-        index = match[1] === '/' ? 0 : $('#nav_bar li a[href*="' + match[1] + '"]').parent().index();
-        $('#nav_bar li').removeClass('active');
-        return $($('#nav_bar li')[index]).addClass('active');
+        index = match[1] === '/' ? 0 : $('#js_navigation li a[href*="' + match[1] + '"]').parent().index();
+        $('#js_navigation li').removeClass('active');
+        return $($('#js_navigation li')[index]).addClass('active');
       }
     },
     setup_link: function() {

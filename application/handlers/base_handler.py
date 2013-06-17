@@ -40,7 +40,7 @@ def before_request():
     # miko result
     # True: result content
     # False: result all page
-    g.view_model['miko'] = 'X-Miko' in request.headers
+    g.view_model['ajax'] = 'X-ajax' in request.headers
 
 
 @app.errorhandler(404)

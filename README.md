@@ -102,12 +102,16 @@ appcfg.py vacuum_indexes myapp/
 ```
 
 
-##CoffeeScript compile & JavaScript minify
-You should install <a href="https://github.com/joyent/node" target="_blank">node.js</a> and <a href="https://github.com/jashkenas/coffee-script" target="_blank">coffee-script</a>.
-```
-$ cd Flask-GAE/applicatioin/static
-$ python jc
-```
+##<a href="https://github.com/chriseppstein/compass" target="_blank">Compass</a>
+###PyCharm settings
+`File Watchers` >> add `SCSS`
+
+  Watcher Settings  |  value 
+:---------:|:---------:
+Program | /Users/Kelp/.rvm/gems/ruby-1.9.3-p392/bin/compass
+Arguments | compile
+Environment variables | GEM_PATH: `/Users/Kelp/.rvm/gems/ruby-1.9.3-p392`
+Output paths | $FileNameWithoutExtension$.css
 
 
 

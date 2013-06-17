@@ -8,6 +8,8 @@
 @import "compass/css3";
 @import "bootstrap/bootstrap";
 
+$navigation_height: 40px;
+
 
 /* font-family */
 @font-face {
@@ -33,23 +35,75 @@ body
     color: #232323;
     background: url(/img/template/dust.png);
 }
-.cs_row
-{
+.cs_container {
+    @extend .container;
+}
+.cs_row {
     @include makeRow();
 }
 
 
+/* navigation */
+div.cs_navigation
+{
+    @extend .navbar;
+    @extend .navbar-fixed-top;
+    height: $navigation_height;
+
+    // inner
+    .cs_navigation_inner {
+        @extend .navbar-inner;
+        height: $navigation_height;
+
+        // ul
+        ul {
+            @extend .nav;
+            height: $navigation_height;
+            li {
+                height: $navigation_height;
+                a {
+                   line-height: $navigation_height - 20;   // because of padding-top and padding-bottom are 10
+                }
+            }
+        }
+        ul.cs_action {
+            float: right;
+        }
+        a.cs_logo {
+            @extend .brand;
+            line-height: $navigation_height - 20;   // because of padding-top and padding-bottom are 10
+        }
+    }
+}
+
+
 /* content */
-#content_background
+.cs_content_background
 {
     background-color: #fff;
     padding: 70px 0 20px 0;
     width: 100%;
 }
+.cs_content
+{
+    @include makeColumn(9);
+}
+.cs_content_full
+{
+    @include makeColumn(12);
+}
+
+
+/* menu */
+.cs_menu
+{
+    @include makeColumn(3);
+    float: right;
+}
 
 
 /* footer */
-#footer
+.cs_footer
 {
     background-color: #f2f2f2;
     background: url(/img/template/dust.png);
