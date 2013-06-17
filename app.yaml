@@ -4,8 +4,6 @@ runtime: python27
 api_version: 1
 threadsafe: yes
 
-#inbound_services:
-#- warmup
 
 skip_files:
 - ^(.*/)?#.*#
@@ -19,8 +17,13 @@ skip_files:
 - ^\.git/.*
 - ^\.idea/.*
 - ^_images/.*
-- ^application/static/jc/.*
-- ^application/static/coffees/.*
+- ^submodules/bs4/.*
+- ^submodules/requests/.*
+- ^application/static/binding.py
+- ^(.*/)?.*\.coffee
+- ^(.*/)?.*\.scss
+- ^(.*/)?.*\.sass
+- ^(.*/)?.*\.rb
 
 handlers:
 # icon / robots.txt
@@ -32,13 +35,17 @@ handlers:
   static_files: application/static/robots.txt
   upload: application/static/robots.txt
 
-# javascript / css / image
-- url: /javascripts/
-  static_dir: application/static/javascripts
+# CoffeeScript / JavaScript / CSS / image / font
+- url: /coffeescript/
+  static_dir: application/static/coffeescript
+- url: /javascript/
+  static_dir: application/static/javascript
 - url: /css/
   static_dir: application/static/css
-- url: /imgs/
-  static_dir: application/static/imgs
+- url: /img/
+  static_dir: application/static/img
+- url: /font/
+  static_dir: application/static/font
 
 # mini profiler
 - url: /gae_mini_profiler/static
