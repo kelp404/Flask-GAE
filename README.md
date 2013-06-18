@@ -16,13 +16,16 @@ This project is my <a href="https://developers.google.com/appengine/" target="_b
 And the example application uses <a href="http://www.whatwg.org/specs/web-apps/current-work/#history-0" target="_blank">History</a> to link pages, so that all hyperlinks are ajax.  
 
 
+
+
 ##Frameworks
 + Flask 0.9
 + Jinja 2.7
 + Werkzeug 0.8.3
-+ Bootstrap 2.3.1
++ Bootstrap 2.3.2
 + jQuery 2.0.0
-+ Google App Engine Launcher 1.7.7
++ Google App Engine Launcher 1.8.1
+
 
 
 
@@ -54,12 +57,13 @@ git clone --recursive git://github.com/kelp404/Flask-GAE.git
 ├─ models            # Other models
 ├─ services          # All business logic here (MVC's model)
 ├─ static
-│  ├─ coffees        # CoffeeScript
+│  ├─ coffeescript   # CoffeeScript
 │  ├─ css
+│  ├─ font
 │  ├─ icon
-│  ├─ imgs
-│  ├─ javascripts
-│  ├─ jc             # JavaScript compiler
+│  ├─ img
+│  ├─ javascript
+│  ├─ binding.py     # JavaScript, CSS binder
 │  └─ robots.txt
 ├─ templates         # Jinja templates (MVC's view)
 ├─ utilities         # Web application's shared utilities(helpers)
@@ -69,9 +73,13 @@ git clone --recursive git://github.com/kelp404/Flask-GAE.git
 ```
 
 
+
+
 ##Example application
 Board: https://flask-gae-kelp.appspot.com/posts  
 Chat: https://flask-gae-kelp.appspot.com/chat  
+
+
 
 
 ##Deploy with <a href="https://developers.google.com/appengine/downloads#Google_App_Engine_SDK_for_Python" target="_blank">appcfg.py</a>
@@ -102,6 +110,8 @@ appcfg.py vacuum_indexes myapp/
 ```
 
 
+
+
 ##<a href="https://github.com/chriseppstein/compass" target="_blank">Compass</a>
 ###PyCharm settings
 `File Watchers` >> add `SCSS`
@@ -112,6 +122,24 @@ Program | /Users/Kelp/.rvm/gems/ruby-1.9.3-p392/bin/compass
 Arguments | compile
 Environment variables | GEM_PATH: `/Users/Kelp/.rvm/gems/ruby-1.9.3-p392`
 Output paths | $FileNameWithoutExtension$.css
+
+
+
+
+##Compress
+###PyCharm settings
+Add the plugin "Assets Compressor".
+> Compressing js and css files, go to Refactor > Compress
+
+
+
+
+##Binding JavaScript, CSS
+```
+$ cd application/static
+$ python binding.py
+```
+
 
 
 
@@ -151,6 +179,7 @@ Python unit test reference: <a href="http://docs.python.org/2/library/unittest.h
 (<a href="http://coffeescript.org/" target="_blank">document</a>)
 + <a href="http://jquery.com/" target="_blank">jQuery</a>
 + <a href="https://github.com/kamens/gae_mini_profiler" target="_blank">Google App Engine Mini Profiler on GitHub</a>
-+ <a href="https://github.com/rspivak/slimit" target="_blank">SlimIt on GitHub</a>
 + <a href="https://github.com/kennethreitz/requests" target="_blank">Requests on GitHub</a>
 + <a href="http://www.crummy.com/software/BeautifulSoup/bs4/doc/" target="_blank">Beautiful Soup</a>
++ <a href="https://github.com/chriseppstein/compass" target="_blank">Compass on GitHub</a>
++ <a href="https://github.com/thomas-mcdonald/bootstrap-sass" target="_blank">Bootstrap for Sass on GitHub</a>
