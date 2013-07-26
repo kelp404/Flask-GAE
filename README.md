@@ -38,7 +38,6 @@ git clone --recursive git://github.com/kelp404/Flask-GAE.git
 ```
 ├─ application       # Web application code
 ├─ flask             # Flask framework
-├─ gae_mini_profiler # GAE mini profiler
 ├─ jinja2            # Jinja framework
 ├─ tests             # Unit tests
 ├─ werkzeug          # Werkzeug framework
@@ -178,7 +177,6 @@ Python unit test reference: <a href="http://docs.python.org/2/library/unittest.h
 + <a href="https://github.com/jashkenas/coffee-script" target="_blank">CoffeeScript on GitHub</a>
 (<a href="http://coffeescript.org/" target="_blank">document</a>)
 + <a href="http://jquery.com/" target="_blank">jQuery</a>
-+ <a href="https://github.com/kamens/gae_mini_profiler" target="_blank">Google App Engine Mini Profiler on GitHub</a>
 + <a href="https://github.com/kennethreitz/requests" target="_blank">Requests on GitHub</a>
 + <a href="http://www.crummy.com/software/BeautifulSoup/bs4/doc/" target="_blank">Beautiful Soup</a>
 + <a href="https://github.com/chriseppstein/compass" target="_blank">Compass on GitHub</a>

@@ -12,8 +12,6 @@ from flask import render_template, g, request
 from google.appengine.api import users
 
 # application
-import gae_mini_profiler
-from gae_mini_profiler.templatetags import profiler_includes
 from application import app, config
 from application.services.account_service import *
 
@@ -23,7 +21,6 @@ from application.services.account_service import *
 def before_request():
     g.view_model = {
         'compressed': config.compressed_resource,
-        'profiler_includes': gae_mini_profiler.templatetags.profiler_includes(),
         'title': '',
         'title_prefix': config.app_name
     }
