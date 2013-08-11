@@ -6,7 +6,7 @@
  */
 
 @import "compass/css3";
-@import "bootstrap/bootstrap";
+
 
 $navigation_height: 40px;
 
@@ -35,29 +35,19 @@ body
     color: #232323;
     background: url(/img/template/dust.png);
 }
-.cs_container {
-    @extend .container;
-}
-.cs_row {
-    @include makeRow();
-}
 
 
 /* navigation */
-div.cs_navigation
+.cs_navigation
 {
-    @extend .navbar;
-    @extend .navbar-fixed-top;
     height: $navigation_height;
 
     // inner
     .cs_navigation_inner {
-        @extend .navbar-inner;
         height: $navigation_height;
 
         // ul
         ul {
-            @extend .nav;
             height: $navigation_height;
             li {
                 height: $navigation_height;
@@ -70,7 +60,6 @@ div.cs_navigation
             float: right;
         }
         a.cs_logo {
-            @extend .brand;
             line-height: $navigation_height - 20;   // because of padding-top and padding-bottom are 10
         }
     }
@@ -84,20 +73,11 @@ div.cs_navigation
     padding: 70px 0 20px 0;
     width: 100%;
 }
-.cs_content
-{
-    @include makeColumn(9);
-}
-.cs_content_full
-{
-    @include makeColumn(12);
-}
 
 
 /* menu */
 .cs_menu
 {
-    @include makeColumn(3);
     float: right;
 }
 
@@ -117,4 +97,3 @@ div.cs_navigation
     text-align:center;
     font-weight:bolder;
 }
-

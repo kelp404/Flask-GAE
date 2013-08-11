@@ -1,7 +1,7 @@
 {% extends './shared/container.html' %}
 
 {% block content %}
-    <div id="js_content" class="cs_content_full">
+    <div id="js_content" class="span12">
         <div class="hide" id="chat"></div>
         <textarea id="chat_board" rows="16" style="width: 860px;"></textarea>
         <form id="form_chat_input" action="/chat/send_msg#">
@@ -13,5 +13,5 @@
 {% endblock %}
 
 {% block menu %}
-    <div id="js_menu" class="cs_menu"></div>
+    <div id="js_menu" class="cs_menu span3"></div>
 {% endblock %}
