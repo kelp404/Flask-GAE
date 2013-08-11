@@ -1,17 +1,17 @@
-<div class="cs_navigation">
-    <div class="cs_navigation_inner">
-        <div class="cs_container">
-            <div class="cs_row">
+<div class="cs_navigation navbar navbar-fixed-top">
+    <div class="cs_navigation_inner navbar-inner">
+        <div class="container">
+            <div class="row">
                 <div class="span12">
-                    <a class="cs_logo" href="/">{{ title_prefix }}</a>
+                    <a class="cs_logo brand" href="/">{{ title_prefix }}</a>
 
-                    <ul id="js_navigation">
+                    <ul id="js_navigation" class="nav">
                         <li class="active"><a href="/">Home</a></li>
                         <li><a href="/posts">Board</a></li>
                         <li><a href="/chat">Chat</a></li>
                     </ul>
 
-                    <ul class="cs_action">
+                    <ul class="cs_action nav">
                         {% if user %}
                             <li><a href="{{ logout_url }}#">Sign out</a></li>
                         {% else %}
