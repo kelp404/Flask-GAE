@@ -1,8 +1,7 @@
 #Flask on Google App Engine Template
 
 Kelp https://twitter.com/kelp404  
-[MIT License][mit]  
-[MIT]: http://www.opensource.org/licenses/mit-license.php
+[MIT License](http://www.opensource.org/licenses/mit-license.php)
 
 ```
    ______   __         ______     ______     __  __
@@ -30,8 +29,8 @@ And the example application uses <a href="http://www.whatwg.org/specs/web-apps/c
 
 
 ##How to use?
-```
-git clone --recursive git://github.com/kelp404/Flask-GAE.git
+```bash
+$ git clone --recursive git://github.com/kelp404/Flask-GAE.git
 ```
 
 ./
@@ -93,51 +92,100 @@ application: flask-gae-kelp
 
 ###deploy project
 **deploy**
-```Python
-appcfg.py update Flask-GAE/
-* Flask-GAE is the folder name of the project
+```bash
+# Flask-GAE is the folder name of the project
+$ appcfg.py update Flask-GAE/
 ```
 **deploy backends**
-```
-appcfg.py backends Flask-GAE/ update
+```bash
+$ appcfg.py backends Flask-GAE/ update
 ```
 
 ###deleting unused indexes
-```
-appcfg.py vacuum_indexes myapp/
+```bash
+$ appcfg.py vacuum_indexes Flask-GAE/
 # https://developers.google.com/appengine/docs/python/tools/uploadinganapp?hl=en#Deleting_Unused_Indexes
 ```
 
 
 
 
-##<a href="https://github.com/chriseppstein/compass" target="_blank">Compass</a>
-###PyCharm settings
-`File Watchers` >> add `SCSS`
+##Development
+###[CoffeeScript](http://www.opensource.org/licenses/mit-license.php)
+```bash
+# install node.js with brew
+$ brew install node
+```
+```bash
+# install CoffeeScript
+$ git clon https://github.com/jashkenas/coffee-script.git
+$ cd coffee-script
+$ sudo bin/cake install
+```
 
-  Watcher Settings  |  value 
+**[File Watchers][File Watchers]:**  
+
+Watcher Settings  |  value 
 :---------:|:---------:
-Program | /Users/Kelp/.rvm/gems/ruby-1.9.3-p392/bin/compass
+Program | /usr/local/bin/coffee
+Arguments | --compile $FileName$
+Output paths | $FileNameWithoutExtension$.js
+---
+
+
+
+###[Closure Compiler](https://code.google.com/p/closure-compiler/)
+You could download compiler form [Google Code](https://code.google.com/p/closure-compiler/wiki/BinaryDownloads?tm=2).  
+
+**[File Watchers][File Watchers]:**  
+
+Watcher Settings  |  value 
+:---------:|:---------:
+Program | /Users/Kelp/tool/closure-compiler/compiler.jar
+Arguments | --compilation_level SIMPLE_OPTIMIZATIONS --js $FileName$
+Output paths | $FileNameWithoutExtension$.min.js<br/>(Create output file from stdout)
+---
+
+
+
+###[Compass](https://github.com/chriseppstein/compass)
+```bash
+# install compass with gem
+$ gem install compass
+```
+
+**[File Watchers][File Watchers]:**  
+
+Watcher Settings  |  value 
+:---------:|:---------:
+Program | /Users/Kelp/.rvm/gems/ruby-1.9.3-p448/bin/compass
 Arguments | compile
-Environment variables | GEM_PATH: `/Users/Kelp/.rvm/gems/ruby-1.9.3-p392`
+Environment variables | GEM_PATH:<br/>/Users/Kelp/.rvm/gems/ruby-1.9.3-p448:/Users/Kelp/.rvm/gems/ruby-1.9.3-p448@global
 Output paths | $FileNameWithoutExtension$.css
 
-
-
-
-##Compress
-###PyCharm settings
-Add the plugin "Assets Compressor".
-> Compressing js and css files, go to Refactor > Compress
-
-
-
-
-##Binding JavaScript, CSS
+```bash
+# You could find compass path by `which`.
+$ which compass
+>> /Users/Kelp/.rvm/gems/ruby-1.9.3-p448/bin/compass
 ```
+```bash
+# You could get gem_path by `echo $GEM_PATH`.
+$ echo $GEM_PATH
+>> /Users/Kelp/.rvm/gems/ruby-1.9.3-p448:/Users/Kelp/.rvm/gems/ruby-1.9.3-p448@global
+```
+---
+
+[File Watchers]: http://www.jetbrains.com/pycharm/webhelp/file-watchers.html
+
+
+
+
+**Binding JavaScript, CSS**  
+```bash
 $ cd application/static
 $ python binding.py
 ```
+---
 
 
 
@@ -155,7 +203,7 @@ clear datastore & text search:
 ```
 --clear_datastore=yes --clear_search_indexes=yes
 ```
-```
+```bash
 $ cd Flask-GAE
 $ python tests
 ```
@@ -180,4 +228,3 @@ Python unit test reference: <a href="http://docs.python.org/2/library/unittest.h
 + <a href="https://github.com/kennethreitz/requests" target="_blank">Requests on GitHub</a>
 + <a href="http://www.crummy.com/software/BeautifulSoup/bs4/doc/" target="_blank">Beautiful Soup</a>
 + <a href="https://github.com/chriseppstein/compass" target="_blank">Compass on GitHub</a>
-+ <a href="https://github.com/thomas-mcdonald/bootstrap-sass" target="_blank">Bootstrap for Sass on GitHub</a>
