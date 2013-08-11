@@ -3,20 +3,20 @@
   var ViewEventChat, ViewEvents, ViewEventsPost;
 
   ViewEventsPost = (function() {
-
     /*
     event of views /posts
     */
+
     function ViewEventsPost() {
       this.delete_post();
     }
 
     ViewEventsPost.prototype.delete_post = function() {
-
       /*
       delete the post
       :param url: $(@).attr('href')
       */
+
       return $(document).on('click', 'a.delete_post', function() {
         $.ajax({
           type: 'delete',
@@ -33,7 +33,7 @@
           success: function(r) {
             core.loading_off();
             if (r.success) {
-              return core.miko({
+              return core.ajax({
                 href: location.href
               }, false);
             } else {
@@ -54,10 +54,10 @@
   })();
 
   ViewEventChat = (function() {
-
     /*
     event of views /chat
     */
+
     function ViewEventChat() {
       this.send_msg();
       this.chat_board_readonly();

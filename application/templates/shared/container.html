@@ -26,11 +26,11 @@
 {% if ajax %}
 <!ajax>
 <title>{{ title }}{{ title_prefix }}</title>
-<div id='js_content' class='js_ajax'>
+<div class='js_ajax' data-ajax-target='js_content'>
     {% block content %}
     {% endblock %}
 </div>
-<div id='js_menu' class='js_ajax'>
+<div class='js_ajax' data-ajax-target='js_menu'>
     {% block menu %}
     {% endblock %}
 </div>

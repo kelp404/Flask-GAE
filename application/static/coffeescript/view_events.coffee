@@ -22,7 +22,7 @@ class ViewEventsPost
                 success: (r) ->
                     core.loading_off()
                     if r.success
-                        core.miko href: location.href, false
+                        core.ajax href: location.href, false
                     else
                         $.av.pop {title: 'Error', message: 'You could not delete this post.', template: 'error'}
             false
@@ -68,5 +68,5 @@ $ ->
     # setup events of views
     new ViewEvents()
 
-    # that will be executed after miko call
+    # that will be executed after ajax call
     core.after_page_loaded()
