@@ -3,10 +3,11 @@
   var core, user_agent;
 
   core = {
+
     /*
     core JavaScript object.
     */
-
+    if_first_pop: true,
     text_loading: 'Loading...',
     is_safari: false,
     is_ie: false,
@@ -14,22 +15,27 @@
     is_modal_pop: false,
     did_load_func: {},
     setup: function() {
+
       /*
       setup core
       */
-
+      var _this = this;
       this.setup_nav();
       this.setup_link();
       this.setup_enter_submit();
       return window.onpopstate = function(e) {
-        return core.pop_state(e.state);
+        return _this.pop_state(e.state);
       };
     },
     pop_state: function(state) {
+
       /*
       pop state
       */
-
+      if (this.if_first_pop) {
+        this.if_first_pop = false;
+        return;
+      }
       if (this.is_modal_pop) {
         this.is_modal_pop = false;
         return;
@@ -37,9 +43,16 @@
       if (state) {
         state.is_pop = true;
         this.ajax(state, false);
+      } else {
+        state = {
+          is_pop: true,
+          href: location.pathname
+        };
+        this.ajax(state, false);
       }
     },
     ajax: function(state, push) {
+
       /*
       Load the page with ajax.
       :param state: history.state
@@ -52,7 +65,6 @@
           }
       :param push: true -> push into history, false do not push into history
       */
-
       var before_index;
       before_index = $('#js_navigation li.cs_active').index();
       if (state.method == null) {
@@ -139,10 +151,10 @@
       return false;
     },
     error_message: function() {
+
       /*
       pop error message.
       */
-
       return $.av.pop({
         title: 'Error',
         message: 'Loading failed, please try again later.',
@@ -150,10 +162,10 @@
       });
     },
     validation: function($form) {
+
       /*
       validation
       */
-
       var success;
       success = true;
       $form.find('input, textarea').each(function() {
@@ -176,10 +188,10 @@
       return success;
     },
     loading_on: function() {
+
       /*
       loading
       */
-
       return $('body, a, .table-pointer tbody tr').css({
         cursor: 'wait'
       });
@@ -193,10 +205,10 @@
       });
     },
     nav_select: function(index) {
+
       /*
       nav bar
       */
-
       if (index >= 0 && !$($('#js_navigation li')[index]).hasClass('active')) {
         $('#js_navigation li').removeClass('active');
         return $($('#js_navigation li')[index]).addClass('active');
@@ -212,10 +224,10 @@
       }
     },
     setup_link: function() {
+
       /*
       setup hyper links and forms to ajax and push history.
       */
-
       if (this.is_ie) {
         return;
       }
@@ -258,10 +270,10 @@
       });
     },
     setup_enter_submit: function() {
+
       /*
       .enter-submit.keypress() Ctrl + Enter then submit the form
       */
-
       return $(document).on('keypress', '.enter-submit', function(e) {
         if (e.keyCode === 13 && e.ctrlKey) {
           $(this).closest('form').submit();
@@ -270,20 +282,20 @@
       });
     },
     after_page_loaded: function() {
+
       /*
       events of views
       */
-
       core.setup_datetime();
       core.setup_focus();
       core.setup_tooltip();
       return core.setup_chat();
     },
     setup_datetime: function() {
+
       /*
       datetime
       */
-
       return $('.datetime').each(function() {
         var date;
         try {
@@ -293,24 +305,24 @@
       });
     },
     setup_focus: function() {
+
       /*
       focus
       */
-
       return $('.focus').select();
     },
     setup_tooltip: function() {
+
       /*
       tool tip
       */
-
       return $('[rel="tooltip"]').tooltip();
     },
     setup_chat: function() {
+
       /*
       setup_chat
       */
-
       var chat_token;
       if ($('#chat').length > 0) {
         chat_token = window.sessionStorage['chat_token'];

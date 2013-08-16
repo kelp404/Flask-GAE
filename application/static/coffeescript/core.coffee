@@ -3,6 +3,7 @@ core =
     ###
     core JavaScript object.
     ###
+    if_first_pop: true
     text_loading: 'Loading...'
     is_safari: false
     is_ie: false
@@ -18,18 +19,28 @@ core =
         @setup_nav()
         @setup_link()
         @setup_enter_submit()
-        window.onpopstate = (e) -> core.pop_state(e.state)
+        window.onpopstate = (e) => @pop_state(e.state)
 
     pop_state: (state) ->
         ###
         pop state
         ###
+        if @if_first_pop
+            # pop event after document loaded
+            @if_first_pop = false
+            return
+
         if @is_modal_pop
             @is_modal_pop = false
             return
 
         if state
             state.is_pop = true
+            @ajax state, false
+        else
+            state =
+                is_pop: true,
+                href: location.pathname
             @ajax state, false
         return
 
