@@ -6,11 +6,11 @@
         <legend>Create post</legend>
         <form id="form_create_post" method="post" action="/posts">
             <div class="control-group">
-                <input class="input-large {{ ''|default('focus', keyword == '') }}" validation=".+" msg="Title is required." type="text" name="title" placeholder="Title" />
+                <input class="input-large {{ ''|default('focus', keyword == '') }}" type="text" name="title" placeholder="Title" />
             </div>
 
             <div class="control-group">
-                <textarea name="content" class="input-xxlarge enter-submit" rows="4" validation=".+" msg="Content is required."></textarea>
+                <textarea name="content" class="input-xxlarge enter-submit" rows="4"></textarea>
             </div>
 
             <div class="control-group"><input class="btn" type="submit" value="Submit"/> ⌃ + Enter</div>

@@ -1,6 +1,7 @@
 
-from flask import g, render_template, request, jsonify
+from flask import g, render_template, request, jsonify, abort
 from application.services.posts_service import *
+from application.models.form.post_form import *
 
 def posts():
     """
@@ -32,6 +33,9 @@ def post_add():
     create a post
     :return:
     """
+    post = PostForm(request.form)
+    if not post.validate():
+        return abort(400)
     title = request.form.get('title')
     content = request.form.get('content')
 
