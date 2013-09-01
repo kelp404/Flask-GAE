@@ -35,12 +35,11 @@ def post_add():
     """
     post = PostForm(request.form)
     if not post.validate():
-        return abort(400)
-    title = request.form.get('title')
-    content = request.form.get('content')
+        return jsonify(post.validated_messages())
+
 
     ps = PostsService()
-    ps.create_post(title, content)
+    ps.create_post(post.title.data, post.content.data)
 
     return posts()
 

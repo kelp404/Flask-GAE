@@ -6,11 +6,15 @@
         <legend>Create post</legend>
         <form id="form_create_post" method="post" action="/posts">
             <div class="control-group">
-                <input class="input-large {{ ''|default('focus', keyword == '') }}" type="text" name="title" placeholder="Title" />
+                <div class="controls">
+                    <input class="input-large {{ ''|default('focus', keyword == '') }}" type="text" id="title" name="title" placeholder="Title" />
+                </div>
             </div>
 
             <div class="control-group">
-                <textarea name="content" class="input-xxlarge enter-submit" rows="4"></textarea>
+                <div class="controls">
+                    <textarea id="content" name="content" class="input-xxlarge enter-submit" rows="4"></textarea>
+                </div>
             </div>
 
             <div class="control-group"><input class="btn" type="submit" value="Submit"/> ⌃ + Enter</div>
