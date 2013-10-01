@@ -22,3 +22,7 @@
 	path = submodules/itsdangerous
 	url = git://github.com/mitsuhiko/itsdangerous.git
 	ignore = dirty
+[submodule "submodules/wtforms"]
+	path = submodules/wtforms
+	url = https://github.com/wtforms/wtforms.git
+	ignore = dirty
