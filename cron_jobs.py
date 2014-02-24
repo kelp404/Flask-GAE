@@ -1,10 +1,8 @@
-
 import webapp2
 from google.appengine.ext import db
 from google.appengine.api import search
 import datetime
 import config
-import logging
 
 
 class ClearPostsHandler(webapp2.RequestHandler):

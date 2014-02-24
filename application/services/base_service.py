@@ -1,6 +1,6 @@
 
-from application.data_models.count_model import *
-import logging
+from application.models.datastore.count_model import *
+
 
 class BaseService(object):
     # return count of name

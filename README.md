@@ -45,7 +45,7 @@ $ git clone --recursive git://github.com/kelp404/Flask-GAE.git
 ├─ cron_jobs.py      # Cron jobs code
 ├─ cron.yaml         # GAE Cron jobs config
 ├─ itsdangerous.py
-└─ index.yaml        # GAE datasotre indexes config
+└─ index.yaml        # GAE datastore indexes config
 ```
 
 ./application/

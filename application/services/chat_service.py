@@ -1,10 +1,12 @@
+import random
+import uuid
+import json
+import cgi
 
-from google.appengine.ext import db
 from google.appengine.api import channel
+
 from application.services.base_service import BaseService
-from application.data_models.chat_member_model import *
-import random, uuid, json, cgi
-import logging
+from application.models.datastore.chat_member_model import *
 
 
 class ChatService(BaseService):

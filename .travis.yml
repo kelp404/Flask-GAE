@@ -1,0 +1,20 @@
+language:
+  - python
+
+python:
+  - 2.7
+
+install:
+  # google app engine
+  - curl -O https://googleappengine.googlecode.com/files/google_appengine_1.8.9.zip
+  - unzip -q google_appengine_1.8.9.zip
+  # django
+  - pip install -q Django==1.5 --use-mirrors
+  # mock
+  - pip install -U mock
+
+before_script:
+  - node -v
+
+script:
+  - python test.py
