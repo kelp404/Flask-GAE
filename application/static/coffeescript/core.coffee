@@ -3,12 +3,12 @@ core =
     ###
     core JavaScript object.
     ###
-    if_first_pop: true
+    if_first_pop: yes
     text_loading: 'Loading...'
-    is_safari: false
-    is_ie: false
+    is_safari: no
+    is_ie: no
     socket: null
-    is_modal_pop: false
+    is_modal_pop: no
     # {key('#settings_links'): ->}
     did_load_func: {}
 

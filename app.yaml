@@ -16,6 +16,7 @@ skip_files:
 - ^\.gitmodules
 - ^\.git/.*
 - ^\.idea/.*
+- ^node_modules/.*
 - ^_images/.*
 - ^submodules/bs4/.*
 - ^submodules/requests/.*

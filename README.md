@@ -1,6 +1,6 @@
 #Flask on Google App Engine Template
+[![devDependency Status](https://david-dm.org/kelp404/Flask-GAE/dev-status.png?branch=master)](https://david-dm.org/kelp404/Flask-GAE#info=devDependencies)
 
-Kelp https://twitter.com/kelp404  
 [MIT License](http://www.opensource.org/licenses/mit-license.php)
 
 ```
@@ -111,26 +111,15 @@ $ appcfg.py vacuum_indexes Flask-GAE/
 
 
 ##Development
-###[CoffeeScript](http://www.opensource.org/licenses/mit-license.php)
 ```bash
-# install node.js with brew
-$ brew install node
+# install node modules
+$ npm install
 ```
 ```bash
-# install CoffeeScript
-$ git clon https://github.com/jashkenas/coffee-script.git
-$ cd coffee-script
-$ sudo bin/cake install
+# run the local server and the file watcher to compile CoffeeScript
+$ grunt dev
 ```
 
-**[File Watchers][File Watchers]:**  
-
-Watcher Settings  |  value 
-:---------:|:---------:
-Program | /usr/local/bin/coffee
-Arguments | --compile $FileName$
-Output paths | $FileNameWithoutExtension$.js
----
 
 
 
@@ -146,46 +135,6 @@ Arguments | --compilation_level SIMPLE_OPTIMIZATIONS --js $FileName$
 Output paths | $FileNameWithoutExtension$.min.js<br/>(Create output file from stdout)
 ---
 
-
-
-###[Compass](https://github.com/chriseppstein/compass)
-```bash
-# install compass with gem
-$ gem install compass
-```
-
-**[File Watchers][File Watchers]:**  
-
-Watcher Settings  |  value 
-:---------:|:---------:
-Program | /Users/Kelp/.rvm/gems/ruby-1.9.3-p448/bin/compass
-Arguments | compile
-Environment variables | GEM_PATH:<br/>/Users/Kelp/.rvm/gems/ruby-1.9.3-p448:/Users/Kelp/.rvm/gems/ruby-1.9.3-p448@global
-Output paths | $FileNameWithoutExtension$.css
-
-```bash
-# You could find compass path by `which`.
-$ which compass
->> /Users/Kelp/.rvm/gems/ruby-1.9.3-p448/bin/compass
-```
-```bash
-# You could get gem_path by `echo $GEM_PATH`.
-$ echo $GEM_PATH
->> /Users/Kelp/.rvm/gems/ruby-1.9.3-p448:/Users/Kelp/.rvm/gems/ruby-1.9.3-p448@global
-```
----
-
-[File Watchers]: http://www.jetbrains.com/pycharm/webhelp/file-watchers.html
-
-
-
-
-**Binding JavaScript, CSS**  
-```bash
-$ cd application/static
-$ python binding.py
-```
----
 
 
 

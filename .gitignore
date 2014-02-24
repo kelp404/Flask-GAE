@@ -1,14 +1,5 @@
-# xcode noise
-build
-*.pbxuser
-*.perspectivev3
-*.mode1v3
-*.xcuserstate
-xcuserdata
-
-# old skool
-.svn
-.cvs
+# node modules
+node_modules
 
 # Python
 *.pyc
