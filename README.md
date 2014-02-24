@@ -1,4 +1,5 @@
 #Flask on Google App Engine Template
+[![Build Status](https://secure.travis-ci.org/kelp404/Flask-GAE.png?branch=master)](http://travis-ci.org/kelp404/Flask-GAE)
 [![devDependency Status](https://david-dm.org/kelp404/Flask-GAE/dev-status.png?branch=master)](https://david-dm.org/kelp404/Flask-GAE#info=devDependencies)
 
 [MIT License](http://www.opensource.org/licenses/mit-license.php)
